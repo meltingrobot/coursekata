@@ -63,6 +63,7 @@ RUN --mount=type=cache,target=${CONDA_DIR}/pkgs,uid=${NB_UID},sharing=locked \
   "r-base~=${R_VERSION}" \
   "r-irkernel" \
   "r-remotes"
+RUN R -e "install.packages('coursekata')"
 
 # add R mimetype and networking options
 COPY --chown=${NB_UID}:${NB_GID} Rprofile.site "${R_HOME}"/etc/
